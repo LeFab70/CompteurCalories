@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nomAlimentTextBox = new System.Windows.Forms.TextBox();
             this.nomAlimentLabel = new System.Windows.Forms.Label();
             this.quitterButton = new System.Windows.Forms.Button();
@@ -54,10 +56,12 @@
             this.caloriesAlimentsLLabel = new System.Windows.Forms.Label();
             this.compteurCaloriesErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.addAlimentFromClassButton = new System.Windows.Forms.Button();
+            this.listAlimentDataGridView = new System.Windows.Forms.DataGridView();
             this.compositionAlimentGroupBox.SuspendLayout();
             this.sommaireAlimentsGroupBox.SuspendLayout();
             this.caloriesAlimentsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compteurCaloriesErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listAlimentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // nomAlimentTextBox
@@ -289,15 +293,45 @@
             // 
             // addAlimentFromClassButton
             // 
-            this.addAlimentFromClassButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addAlimentFromClassButton.BackColor = System.Drawing.Color.Chocolate;
+            this.addAlimentFromClassButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAlimentFromClassButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.addAlimentFromClassButton.Location = new System.Drawing.Point(11, 432);
             this.addAlimentFromClassButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addAlimentFromClassButton.Name = "addAlimentFromClassButton";
-            this.addAlimentFromClassButton.Size = new System.Drawing.Size(166, 32);
+            this.addAlimentFromClassButton.Size = new System.Drawing.Size(182, 32);
             this.addAlimentFromClassButton.TabIndex = 8;
-            this.addAlimentFromClassButton.Text = "C&alculer from class";
+            this.addAlimentFromClassButton.Text = "+&Aliment from class";
             this.addAlimentFromClassButton.UseVisualStyleBackColor = false;
             this.addAlimentFromClassButton.Click += new System.EventHandler(this.addAlimentFromClassButton_Click);
+            // 
+            // listAlimentDataGridView
+            // 
+            this.listAlimentDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.listAlimentDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listAlimentDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.listAlimentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listAlimentDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.listAlimentDataGridView.Location = new System.Drawing.Point(11, 469);
+            this.listAlimentDataGridView.Name = "listAlimentDataGridView";
+            this.listAlimentDataGridView.ReadOnly = true;
+            this.listAlimentDataGridView.RowTemplate.Height = 24;
+            this.listAlimentDataGridView.Size = new System.Drawing.Size(553, 265);
+            this.listAlimentDataGridView.TabIndex = 9;
             // 
             // CompteurCaloriesForm
             // 
@@ -305,7 +339,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.quitterButton;
-            this.ClientSize = new System.Drawing.Size(583, 481);
+            this.ClientSize = new System.Drawing.Size(577, 737);
+            this.Controls.Add(this.listAlimentDataGridView);
             this.Controls.Add(this.addAlimentFromClassButton);
             this.Controls.Add(this.nomAlimentTextBox);
             this.Controls.Add(this.nomAlimentLabel);
@@ -325,6 +360,7 @@
             this.sommaireAlimentsGroupBox.ResumeLayout(false);
             this.caloriesAlimentsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.compteurCaloriesErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listAlimentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +393,7 @@
         internal System.Windows.Forms.Label caloriesAlimentsLLabel;
         private System.Windows.Forms.ErrorProvider compteurCaloriesErrorProvider;
         internal System.Windows.Forms.Button addAlimentFromClassButton;
+        private System.Windows.Forms.DataGridView listAlimentDataGridView;
     }
 }
 

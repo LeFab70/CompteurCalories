@@ -27,8 +27,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Text;
 using System.Windows.Forms;
+using ClassAliment;
 
 namespace CompteurCalories
 {
@@ -230,6 +232,7 @@ namespace CompteurCalories
                 if (lipidesTextBox.Text == string.Empty && glucidesTextBox.Text == string.Empty && proteinesTextBox.Text == string.Empty)
                 {
                     lipidesTextBox.Focus();
+                    MessageBox.Show(sender.GetType().Name);
 
                     throw new Exception("Au moins un des champs de lipides, glucides ou protéines doit être saisi");
                 }
@@ -257,11 +260,21 @@ namespace CompteurCalories
                 caloriesAliment = calculerCalories(lipides, glucides, proteines);
                 totalCalories = calculerCaloriesAlimentsFromList();
                 //affichage des résultats
-                nombreAlimentsLabel.Text = listeAliments.Count.ToString("F4"); // pour affficher 4 chiffres après la virgule
+                nombreAlimentsLabel.Text = listeAliments.Count.ToString(); // pour affficher 4 chiffres après la virgule
                 nombreCaloriesAlimentLabel.Text = caloriesAliment.ToString("F4");
                 nombreTotalCaloriesLabel.Text = totalCalories.ToString("F4");
                 reinitialiserChamps();
 
+                BindingSource bindingSource = new BindingSource(); // pour lier la liste d'aliments à la grille
+                bindingSource.DataSource =(listeAliments);
+                listAlimentDataGridView.DataSource = bindingSource;
+
+                //foreach (Aliment alimentItem in listeAliments)
+                //{ 
+                //    Console.WriteLine("Nombre d'aliments: " + alimentItem.Name);
+                //    //listAlimentDataGridView.DataSource = listeAliments;
+                //}
+                
             }
             catch (Exception ex)
             {
@@ -274,6 +287,7 @@ namespace CompteurCalories
     }
 }
 
+#region Classe Aliment
 namespace ClassAliment
 {
     public class Aliment
@@ -318,3 +332,4 @@ namespace ClassAliment
         #endregion
     }
 }
+#endregion
