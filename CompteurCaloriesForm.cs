@@ -30,24 +30,13 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Text;
 using System.Windows.Forms;
-using ClassAliment;
+
 
 namespace CompteurCalories
 {
     public partial class CompteurCaloriesForm : Form
     {
-
-
-        #region Initialisation
-
-        public CompteurCaloriesForm()
-        {
-            InitializeComponent();
-        }
-
-        #endregion
-
-        #region Champs privées et vonstants
+        #region Champs privées et constants
         //constantes
         private const Single LIPIDES_CAL_G = 9;
         private const Single GLUCIDES_CAL_G = 4;
@@ -59,14 +48,21 @@ namespace CompteurCalories
         private Single caloriesAliment = 0.0F;
 
         //liste d'aliments
-        List<ClassAliment.Aliment> listeAliments = new List<ClassAliment.Aliment>();
+        List<Aliment> listeAliments = new List<Aliment>();
 
         #endregion
+        #region contructeur formulaire
 
-        #region Calculer les calories, le sommaire de tous les aliments et afficher les résultats (incluant Traitement exception),reinitialiser les champs
+        public CompteurCaloriesForm()
+        {
+            InitializeComponent();
+        }
 
-        //Addjouter un aliment dans la liste d'aliments depuis la classe Aliment
-        private void addAliment(ClassAliment.Aliment aliment)
+        #endregion
+        #region Methodes  pour calculer les calories, le sommaire de tous les aliments et afficher les résultats (incluant Traitement exception),reinitialiser les champs
+
+        //Add ajouter un aliment dans la liste d'aliments depuis la classe Aliment
+        private void addAliment(Aliment aliment)
         {
             listeAliments.Add(aliment);
         }
@@ -75,7 +71,7 @@ namespace CompteurCalories
         private Single calculerCaloriesAlimentsFromList()
         {
             totalCalories = 0.0F;
-            foreach (ClassAliment.Aliment aliment in listeAliments)
+            foreach (Aliment aliment in listeAliments)
             {
                 totalCalories += calculerCalories(aliment.QteLipide, aliment.QteGlucide, aliment.QteProteine);
             }
@@ -100,12 +96,10 @@ namespace CompteurCalories
         }
 
         //Message d'erreur
-        private void afficherMessageErreur(string message)
+        private void afficherMessageErreur(string message, MessageBoxButtons messageBoxButtons, string titreErreur, MessageBoxIcon messageBoxIcon)
         {
-            string titre = "Erreur dans l'application";
-            MessageBoxButtons boutons = MessageBoxButtons.AbortRetryIgnore;
-            MessageBoxIcon icone = MessageBoxIcon.Error;
-            MessageBox.Show(message, titre, boutons, icone);
+            MessageBox.Show(message, titreErreur, messageBoxButtons, messageBoxIcon);
+            return;
         }
 
         //methode pour calculer les calories
@@ -118,7 +112,7 @@ namespace CompteurCalories
 
         #endregion
 
-        #region Quitter l'application avec validation
+        #region  Quitter l'application avec validation
         private void quitterButton_Click(object sender, EventArgs e)
         {
             string msg = "Voulez-vous vraiment quitter?";
@@ -134,15 +128,99 @@ namespace CompteurCalories
         }
         #endregion
 
-        #region Reinitialiser les champs controls  et les variables
+        #region Button Reinitialiser les champs controls  et les variables
         private void effacerButton_Click(object sender, EventArgs e)
         {
             reinitialiserChamps();
         }
         #endregion
 
-        #region calculer les calories par aliment et globales
-        private void calculerButton_Click(object sender, EventArgs e)
+        #region button calculer les calories par aliment et globales
+        //remplacer par ajout aliment dans une liste
+        /*  private void calculerButton_Click(object sender, EventArgs e)
+       {
+           try
+           {
+               Single lipides = 0;
+               Single glucides = 0;
+               Single proteines = 0;
+               //validation des champs
+               //TODO: valider les champs et donner le focus en fonction de l'erreur au champs
+               //TODO: Gerer les exceptions dans un dossier à part
+               //TODO: Utiliser la classe aliment pour gérer les aliments sur chaque aliment et les stocker dans une liste
+               if (Single.Parse(lipidesTextBox.Text) < 0.0F)
+               {
+                   MessageBox.Show(Single.Parse(lipidesTextBox.Text).ToString("F"));
+                   lipidesTextBox.Focus();
+                   return;
+               }
+
+
+               if (nomAlimentTextBox.Text == string.Empty)
+               {
+                   nomAlimentTextBox.Focus();
+                   throw new Exception("Le nom de l'aliment est obligatoire");
+               }
+               if (lipidesTextBox.Text == string.Empty && glucidesTextBox.Text == string.Empty && proteinesTextBox.Text == string.Empty)
+               {
+                   lipidesTextBox.Focus();
+
+                   throw new Exception("Au moins un des champs de lipides, glucides ou protéines doit être saisi");
+               }
+               if (Single.Parse(lipidesTextBox.Text) < 0.0F && Single.Parse(glucidesTextBox.Text) < 0.0F && Single.Parse(proteinesTextBox.Text) < 0.0F)
+               {
+                   lipidesTextBox.Focus();
+                   throw new Exception("Les valeurs saisies doivent être des nombres réels positifs");
+               }
+               // recuperaction et conversion des valeurs
+               try
+               {
+                   if (lipidesTextBox.Text != string.Empty)
+                   {
+                       lipides = Convert.ToSingle(lipidesTextBox.Text);
+                   }
+                   if (glucidesTextBox.Text != string.Empty)
+                   {
+                       glucides = Convert.ToSingle(glucidesTextBox.Text);
+                   }
+                   if (proteinesTextBox.Text != string.Empty)
+                   {
+                       proteines = Convert.ToSingle(proteinesTextBox.Text);
+                   }
+
+               }
+               catch (FormatException fex)
+               {
+
+                   afficherMessageErreur("Erreurs de conversions" + fex.Message);
+               }
+               catch (OverflowException oex)
+               {
+                   afficherMessageErreur("Les valeurs saisies sont trop grandes, depassement de capacités" + oex.Message);
+               }
+
+               //calcul des calories
+               caloriesAliment = calculerCalories(lipides, glucides, proteines);
+               //affichage des résultats
+               nombreAliments++;
+               totalCalories += caloriesAliment;
+               nombreAlimentsLabel.Text = nombreAliments.ToString("F4"); // pour affficher 4 chiffres après la virgule
+               nombreCaloriesAlimentLabel.Text = caloriesAliment.ToString("F4");
+               nombreTotalCaloriesLabel.Text = totalCalories.ToString("F4");
+               reinitialiserChamps();
+
+           }
+           catch (Exception ex)
+           {
+               afficherMessageErreur(ex.Message);
+           }
+
+       } 
+      */
+
+        //ajouter un aliment depuis la classe Aliment
+
+        private void addAlimentFromClassButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -153,108 +231,101 @@ namespace CompteurCalories
                 //TODO: valider les champs et donner le focus en fonction de l'erreur au champs
                 //TODO: Gerer les exceptions dans un dossier à part
                 //TODO: Utiliser la classe aliment pour gérer les aliments sur chaque aliment et les stocker dans une liste
-                if (Single.Parse(lipidesTextBox.Text) < 0.0F)
+
+                // recuperaction et conversion des valeurs et validations
+                try
                 {
-                    MessageBox.Show(Single.Parse(lipidesTextBox.Text).ToString("F"));
-                    lipidesTextBox.Focus();
+                    if (String.IsNullOrEmpty(nomAlimentTextBox.Text))
+                    {
+                        nomAlimentTextBox.Focus();
+                        afficherMessageErreur("Le nom de l'aliment est obligatoire", MessageBoxButtons.OK, "Erreur sur nom aliment", MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (String.IsNullOrEmpty(lipidesTextBox.Text))
+                    {
+                        lipidesTextBox.Focus();
+                        afficherMessageErreur("La quantite de lipide est requise", MessageBoxButtons.OK, "Erreur sur quantité lipide", MessageBoxIcon.Error);
+                        return;
+
+                    }
+                    else
+                    {
+                        lipides = Convert.ToSingle(lipidesTextBox.Text);
+                    }
+
+
+                    if (String.IsNullOrEmpty(glucidesTextBox.Text))
+                    {
+                        glucidesTextBox.Focus();
+                        afficherMessageErreur("La quantite de glucides est requise", MessageBoxButtons.OK, "Erreur sur quantité gluicide", MessageBoxIcon.Error);
+                        return;
+
+                    }
+                    else
+                    {
+                        glucides = Convert.ToSingle(glucidesTextBox.Text);
+                    }
+                    if (String.IsNullOrEmpty(proteinesTextBox.Text))
+                    {
+                        proteinesTextBox.Focus();
+                        afficherMessageErreur("La quantite de proteines est requise", MessageBoxButtons.OK, "Erreur sur quantité proteine", MessageBoxIcon.Error);
+                        return;
+
+                    }
+                    else
+                    {
+
+                        proteines = Convert.ToSingle(proteinesTextBox.Text);
+                    }
+
+                }
+                catch (FormatException fex)
+                {
+
+                    afficherMessageErreur("Erreurs de conversions" + fex.Message, MessageBoxButtons.OK, "Erreur de conversion", MessageBoxIcon.Warning);
+                    return;
+                }
+                catch (OverflowException oex)
+                {
+                    afficherMessageErreur("Les valeurs saisies sont trop grandes, depassement de capacités" + oex.Message, MessageBoxButtons.OK, "Erreur de conversion", MessageBoxIcon.Warning);
                     return;
                 }
 
 
-                if (nomAlimentTextBox.Text == string.Empty)
+                //Verifier si les valeurs sont positives
+
+                if (lipides < 0.0F)
                 {
-                    nomAlimentTextBox.Focus();
-                    throw new Exception("Le nom de l'aliment est obligatoire");
-                }
-                if (lipidesTextBox.Text == string.Empty && glucidesTextBox.Text == string.Empty && proteinesTextBox.Text == string.Empty)
-                {
+                    afficherMessageErreur(Single.Parse(lipidesTextBox.Text).ToString("F")+" Valeur negative",MessageBoxButtons.OK,"Valeurs negatives",MessageBoxIcon.Warning);
                     lipidesTextBox.Focus();
+                    lipidesTextBox.Clear();
+                    throw new Exception("lipide  obligatoire, la valeur doit etre positive");
 
-                    throw new Exception("Au moins un des champs de lipides, glucides ou protéines doit être saisi");
                 }
-                if (Single.Parse(lipidesTextBox.Text) < 0.0F && Single.Parse(glucidesTextBox.Text) < 0.0F && Single.Parse(proteinesTextBox.Text) < 0.0F)
-                {
-                    lipidesTextBox.Focus();
-                    throw new Exception("Les valeurs saisies doivent être des nombres réels positifs");
-                }
-                if (lipidesTextBox.Text != string.Empty)
-                {
-                    lipides = Convert.ToSingle(lipidesTextBox.Text);
-                }
-                if (glucidesTextBox.Text != string.Empty)
-                {
-                    glucides = Convert.ToSingle(glucidesTextBox.Text);
-                }
-                if (proteinesTextBox.Text != string.Empty)
-                {
-                    proteines = Convert.ToSingle(proteinesTextBox.Text);
-                }
-                //calcul des calories
-                caloriesAliment = calculerCalories(lipides, glucides, proteines);
-                //affichage des résultats
-                nombreAliments++;
-                totalCalories += caloriesAliment;
-                nombreAlimentsLabel.Text = nombreAliments.ToString("F4"); // pour affficher 4 chiffres après la virgule
-                nombreCaloriesAlimentLabel.Text = caloriesAliment.ToString("F4");
-                nombreTotalCaloriesLabel.Text = totalCalories.ToString("F4");
-                reinitialiserChamps();
 
-            }
-            catch (Exception ex)
-            {
-                afficherMessageErreur(ex.Message);
-            }
-            //catch (FormatException ex)
-            //{
-            //    afficherMessageErreur("Les valeurs saisies doivent être des nombres réels positifs");
-            //}
-            //catch (OverflowException)
-            //{
-            //    afficherMessageErreur("Les valeurs saisies sont trop grandes");
-            //}
+                if (glucides < 0.0F)
+                {
+                    
+                    afficherMessageErreur(Single.Parse(glucidesTextBox.Text).ToString("F") + " Valeur negative", MessageBoxButtons.OK, "Valeurs negatives", MessageBoxIcon.Warning);
+                    glucidesTextBox.Clear();
+                    glucidesTextBox.Focus();
+                    throw new Exception("glucide obligatoire, la valeur doit etre positive");
 
-        }
+                }
 
-        //ajouter un aliment depuis la classe Aliment
-        private void addAlimentFromClassButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Single lipides = 0;
-                Single glucides = 0;
-                Single proteines = 0;
-                //validation des champs
-                if (nomAlimentTextBox.Text == string.Empty)
+                if (proteines < 0.0F)
                 {
-                    nomAlimentTextBox.Focus();
-                    throw new Exception("Le nom de l'aliment est obligatoire");
-                }
-                if (lipidesTextBox.Text == string.Empty && glucidesTextBox.Text == string.Empty && proteinesTextBox.Text == string.Empty)
-                {
-                    lipidesTextBox.Focus();
-                    MessageBox.Show(sender.GetType().Name);
+                   
+                    afficherMessageErreur(Single.Parse(proteinesTextBox.Text).ToString("F") + " Valeur negative", MessageBoxButtons.OK, "Valeurs negatives", MessageBoxIcon.Warning);
+                    proteinesTextBox.Clear();
+                    proteinesTextBox.Focus();
+                    throw new Exception("proteine obligatoire, la valeur doit etre positive");
 
-                    throw new Exception("Au moins un des champs de lipides, glucides ou protéines doit être saisi");
                 }
-                if (Single.Parse(lipidesTextBox.Text) < 0.0F && Single.Parse(glucidesTextBox.Text) < 0.0F && Single.Parse(proteinesTextBox.Text) < 0.0F)
-                {
-                    lipidesTextBox.Focus();
-                    throw new Exception("Les valeurs saisies doivent être des nombres réels positifs");
-                }
-                if (lipidesTextBox.Text != string.Empty)
-                {
-                    lipides = Convert.ToSingle(lipidesTextBox.Text);
-                }
-                if (glucidesTextBox.Text != string.Empty)
-                {
-                    glucides = Convert.ToSingle(glucidesTextBox.Text);
-                }
-                if (proteinesTextBox.Text != string.Empty)
-                {
-                    proteines = Convert.ToSingle(proteinesTextBox.Text);
-                }
+
                 // creer la classe aliment et ajouter aliment dans la liste
-                ClassAliment.Aliment aliment = new ClassAliment.Aliment(nomAlimentTextBox.Text, lipides, glucides, proteines);
+                Aliment aliment = new Aliment(nomAlimentTextBox.Text, lipides, glucides, proteines);
                 addAliment(aliment);
                 //calcul des calories
                 caloriesAliment = calculerCalories(lipides, glucides, proteines);
@@ -263,73 +334,28 @@ namespace CompteurCalories
                 nombreAlimentsLabel.Text = listeAliments.Count.ToString(); // pour affficher 4 chiffres après la virgule
                 nombreCaloriesAlimentLabel.Text = caloriesAliment.ToString("F4");
                 nombreTotalCaloriesLabel.Text = totalCalories.ToString("F4");
+              
+                //Ajout dans la liste Grid
+                BindingSource bindingSource = new BindingSource(); // pour lier la liste d'aliments à la grille
+                bindingSource.DataSource = (listeAliments);
+                listAlimentDataGridView.DataSource = bindingSource;
+                //effacer les champs
+
                 reinitialiserChamps();
 
-                BindingSource bindingSource = new BindingSource(); // pour lier la liste d'aliments à la grille
-                bindingSource.DataSource =(listeAliments);
-                listAlimentDataGridView.DataSource = bindingSource;
+    
 
-                //foreach (Aliment alimentItem in listeAliments)
-                //{ 
-                //    Console.WriteLine("Nombre d'aliments: " + alimentItem.Name);
-                //    //listAlimentDataGridView.DataSource = listeAliments;
-                //}
-                
             }
             catch (Exception ex)
             {
-                afficherMessageErreur(ex.Message);
+                afficherMessageErreur(ex.Message, MessageBoxButtons.OK, " Erreur dans l'application", MessageBoxIcon.Warning);
             }
             #endregion
 
 
         }
+
+     
     }
 }
 
-#region Classe Aliment
-namespace ClassAliment
-{
-    public class Aliment
-    {
-        #region propriete 
-        private string name;
-        private Single qteLipide;
-        private Single qteGlucide;
-        private Single qteProteine;
-        #endregion
-        #region constructeurs
-        public Aliment() { }
-        public Aliment(string name, float qteLipide, float qteGlucide, float qteProteine)
-        {
-            this.name = name;
-            this.qteLipide = qteLipide;
-            this.qteGlucide = qteGlucide;
-            this.qteProteine = qteProteine;
-        }
-        #endregion
-        #region getters et setters
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public Single QteLipide
-        {
-            get { return qteLipide; }
-            set { qteLipide = value; }
-        }
-        public Single QteGlucide
-        {
-            get { return qteGlucide; }
-            set { qteGlucide = value; }
-        }
-        public Single QteProteine
-        {
-            get { return qteProteine; }
-            set { qteProteine = value; }
-        }
-        #endregion
-    }
-}
-#endregion

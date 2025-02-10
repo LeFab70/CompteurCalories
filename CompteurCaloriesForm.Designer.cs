@@ -67,17 +67,18 @@
             // nomAlimentTextBox
             // 
             this.nomAlimentTextBox.HideSelection = false;
-            this.nomAlimentTextBox.Location = new System.Drawing.Point(297, 15);
-            this.nomAlimentTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nomAlimentTextBox.Location = new System.Drawing.Point(223, 12);
+            this.nomAlimentTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nomAlimentTextBox.Name = "nomAlimentTextBox";
-            this.nomAlimentTextBox.Size = new System.Drawing.Size(265, 22);
+            this.nomAlimentTextBox.Size = new System.Drawing.Size(200, 20);
             this.nomAlimentTextBox.TabIndex = 1;
             // 
             // nomAlimentLabel
             // 
-            this.nomAlimentLabel.Location = new System.Drawing.Point(12, 18);
+            this.nomAlimentLabel.Location = new System.Drawing.Point(9, 15);
+            this.nomAlimentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nomAlimentLabel.Name = "nomAlimentLabel";
-            this.nomAlimentLabel.Size = new System.Drawing.Size(219, 25);
+            this.nomAlimentLabel.Size = new System.Drawing.Size(164, 20);
             this.nomAlimentLabel.TabIndex = 0;
             this.nomAlimentLabel.Text = "&Nom de l\'aliment :";
             // 
@@ -85,10 +86,10 @@
             // 
             this.quitterButton.CausesValidation = false;
             this.quitterButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.quitterButton.Location = new System.Drawing.Point(451, 432);
-            this.quitterButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quitterButton.Location = new System.Drawing.Point(338, 343);
+            this.quitterButton.Margin = new System.Windows.Forms.Padding(2);
             this.quitterButton.Name = "quitterButton";
-            this.quitterButton.Size = new System.Drawing.Size(113, 32);
+            this.quitterButton.Size = new System.Drawing.Size(85, 34);
             this.quitterButton.TabIndex = 7;
             this.quitterButton.Text = "&Quitter";
             this.quitterButton.Click += new System.EventHandler(this.quitterButton_Click);
@@ -104,110 +105,116 @@
             this.compositionAlimentGroupBox.Controls.Add(this.proteineLabel);
             this.compositionAlimentGroupBox.Controls.Add(this.glucidesLabel);
             this.compositionAlimentGroupBox.Controls.Add(this.lipidesLabel);
-            this.compositionAlimentGroupBox.Location = new System.Drawing.Point(11, 55);
-            this.compositionAlimentGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.compositionAlimentGroupBox.Location = new System.Drawing.Point(8, 45);
+            this.compositionAlimentGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.compositionAlimentGroupBox.Name = "compositionAlimentGroupBox";
-            this.compositionAlimentGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.compositionAlimentGroupBox.Size = new System.Drawing.Size(559, 166);
+            this.compositionAlimentGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.compositionAlimentGroupBox.Size = new System.Drawing.Size(419, 135);
             this.compositionAlimentGroupBox.TabIndex = 2;
             this.compositionAlimentGroupBox.TabStop = false;
             this.compositionAlimentGroupBox.Text = "Composition de l\'aliment";
             // 
             // g3Label
             // 
-            this.g3Label.Location = new System.Drawing.Point(293, 117);
+            this.g3Label.Location = new System.Drawing.Point(220, 95);
+            this.g3Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.g3Label.Name = "g3Label";
-            this.g3Label.Size = new System.Drawing.Size(36, 32);
+            this.g3Label.Size = new System.Drawing.Size(27, 26);
             this.g3Label.TabIndex = 8;
             this.g3Label.Text = "g.";
             this.g3Label.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // g2Label
             // 
-            this.g2Label.Location = new System.Drawing.Point(293, 78);
+            this.g2Label.Location = new System.Drawing.Point(220, 63);
+            this.g2Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.g2Label.Name = "g2Label";
-            this.g2Label.Size = new System.Drawing.Size(36, 33);
+            this.g2Label.Size = new System.Drawing.Size(27, 27);
             this.g2Label.TabIndex = 7;
             this.g2Label.Text = "g.";
             this.g2Label.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // g1Label
             // 
-            this.g1Label.Location = new System.Drawing.Point(293, 43);
+            this.g1Label.Location = new System.Drawing.Point(220, 35);
+            this.g1Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.g1Label.Name = "g1Label";
-            this.g1Label.Size = new System.Drawing.Size(36, 30);
+            this.g1Label.Size = new System.Drawing.Size(27, 24);
             this.g1Label.TabIndex = 6;
             this.g1Label.Text = "g.";
             this.g1Label.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // proteinesTextBox
             // 
-            this.proteinesTextBox.Location = new System.Drawing.Point(148, 117);
-            this.proteinesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.proteinesTextBox.Location = new System.Drawing.Point(111, 95);
+            this.proteinesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.proteinesTextBox.Name = "proteinesTextBox";
-            this.proteinesTextBox.Size = new System.Drawing.Size(136, 22);
+            this.proteinesTextBox.Size = new System.Drawing.Size(103, 20);
             this.proteinesTextBox.TabIndex = 5;
             // 
             // glucidesTextBox
             // 
-            this.glucidesTextBox.Location = new System.Drawing.Point(148, 78);
-            this.glucidesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.glucidesTextBox.Location = new System.Drawing.Point(111, 63);
+            this.glucidesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.glucidesTextBox.Name = "glucidesTextBox";
-            this.glucidesTextBox.Size = new System.Drawing.Size(136, 22);
+            this.glucidesTextBox.Size = new System.Drawing.Size(103, 20);
             this.glucidesTextBox.TabIndex = 3;
             // 
             // lipidesTextBox
             // 
-            this.lipidesTextBox.Location = new System.Drawing.Point(148, 39);
-            this.lipidesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lipidesTextBox.Location = new System.Drawing.Point(111, 32);
+            this.lipidesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.lipidesTextBox.Name = "lipidesTextBox";
-            this.lipidesTextBox.Size = new System.Drawing.Size(136, 22);
+            this.lipidesTextBox.Size = new System.Drawing.Size(103, 20);
             this.lipidesTextBox.TabIndex = 1;
             // 
             // proteineLabel
             // 
-            this.proteineLabel.Location = new System.Drawing.Point(13, 117);
+            this.proteineLabel.Location = new System.Drawing.Point(10, 95);
+            this.proteineLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.proteineLabel.Name = "proteineLabel";
-            this.proteineLabel.Size = new System.Drawing.Size(129, 32);
+            this.proteineLabel.Size = new System.Drawing.Size(97, 26);
             this.proteineLabel.TabIndex = 4;
             this.proteineLabel.Text = "&Protéines:";
             // 
             // glucidesLabel
             // 
-            this.glucidesLabel.Location = new System.Drawing.Point(13, 78);
+            this.glucidesLabel.Location = new System.Drawing.Point(10, 63);
+            this.glucidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.glucidesLabel.Name = "glucidesLabel";
-            this.glucidesLabel.Size = new System.Drawing.Size(129, 25);
+            this.glucidesLabel.Size = new System.Drawing.Size(97, 20);
             this.glucidesLabel.TabIndex = 2;
             this.glucidesLabel.Text = "&Glucides:";
             // 
             // lipidesLabel
             // 
-            this.lipidesLabel.Location = new System.Drawing.Point(13, 39);
+            this.lipidesLabel.Location = new System.Drawing.Point(10, 32);
+            this.lipidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lipidesLabel.Name = "lipidesLabel";
-            this.lipidesLabel.Size = new System.Drawing.Size(129, 25);
+            this.lipidesLabel.Size = new System.Drawing.Size(97, 20);
             this.lipidesLabel.TabIndex = 0;
             this.lipidesLabel.Text = "&Lipides:";
             // 
             // effacerButton
             // 
             this.effacerButton.CausesValidation = false;
-            this.effacerButton.Location = new System.Drawing.Point(331, 432);
-            this.effacerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.effacerButton.Location = new System.Drawing.Point(248, 343);
+            this.effacerButton.Margin = new System.Windows.Forms.Padding(2);
             this.effacerButton.Name = "effacerButton";
-            this.effacerButton.Size = new System.Drawing.Size(113, 32);
+            this.effacerButton.Size = new System.Drawing.Size(85, 34);
             this.effacerButton.TabIndex = 6;
             this.effacerButton.Text = "&Effacer";
             this.effacerButton.Click += new System.EventHandler(this.effacerButton_Click);
             // 
             // calculerButton
             // 
-            this.calculerButton.Location = new System.Drawing.Point(199, 432);
-            this.calculerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.calculerButton.Location = new System.Drawing.Point(12, 343);
+            this.calculerButton.Margin = new System.Windows.Forms.Padding(2);
             this.calculerButton.Name = "calculerButton";
-            this.calculerButton.Size = new System.Drawing.Size(125, 32);
+            this.calculerButton.Size = new System.Drawing.Size(94, 26);
             this.calculerButton.TabIndex = 5;
             this.calculerButton.Text = "&Calculer";
-            this.calculerButton.Click += new System.EventHandler(this.calculerButton_Click);
+            this.calculerButton.Visible = false;
             // 
             // sommaireAlimentsGroupBox
             // 
@@ -215,11 +222,11 @@
             this.sommaireAlimentsGroupBox.Controls.Add(this.nombreAlimentsLabel);
             this.sommaireAlimentsGroupBox.Controls.Add(this.totalCaloriesLLabel);
             this.sommaireAlimentsGroupBox.Controls.Add(this.nombreAlimentsLLabel);
-            this.sommaireAlimentsGroupBox.Location = new System.Drawing.Point(4, 300);
-            this.sommaireAlimentsGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sommaireAlimentsGroupBox.Location = new System.Drawing.Point(3, 244);
+            this.sommaireAlimentsGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.sommaireAlimentsGroupBox.Name = "sommaireAlimentsGroupBox";
-            this.sommaireAlimentsGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sommaireAlimentsGroupBox.Size = new System.Drawing.Size(559, 117);
+            this.sommaireAlimentsGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.sommaireAlimentsGroupBox.Size = new System.Drawing.Size(419, 95);
             this.sommaireAlimentsGroupBox.TabIndex = 4;
             this.sommaireAlimentsGroupBox.TabStop = false;
             this.sommaireAlimentsGroupBox.Text = "Sommaire";
@@ -227,34 +234,38 @@
             // nombreTotalCaloriesLabel
             // 
             this.nombreTotalCaloriesLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.nombreTotalCaloriesLabel.Location = new System.Drawing.Point(373, 68);
+            this.nombreTotalCaloriesLabel.Location = new System.Drawing.Point(280, 55);
+            this.nombreTotalCaloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nombreTotalCaloriesLabel.Name = "nombreTotalCaloriesLabel";
-            this.nombreTotalCaloriesLabel.Size = new System.Drawing.Size(161, 27);
+            this.nombreTotalCaloriesLabel.Size = new System.Drawing.Size(121, 22);
             this.nombreTotalCaloriesLabel.TabIndex = 3;
             this.nombreTotalCaloriesLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // nombreAlimentsLabel
             // 
             this.nombreAlimentsLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.nombreAlimentsLabel.Location = new System.Drawing.Point(373, 33);
+            this.nombreAlimentsLabel.Location = new System.Drawing.Point(280, 27);
+            this.nombreAlimentsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nombreAlimentsLabel.Name = "nombreAlimentsLabel";
-            this.nombreAlimentsLabel.Size = new System.Drawing.Size(161, 27);
+            this.nombreAlimentsLabel.Size = new System.Drawing.Size(121, 22);
             this.nombreAlimentsLabel.TabIndex = 1;
             this.nombreAlimentsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // totalCaloriesLLabel
             // 
-            this.totalCaloriesLLabel.Location = new System.Drawing.Point(19, 69);
+            this.totalCaloriesLLabel.Location = new System.Drawing.Point(14, 56);
+            this.totalCaloriesLLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalCaloriesLLabel.Name = "totalCaloriesLLabel";
-            this.totalCaloriesLLabel.Size = new System.Drawing.Size(291, 26);
+            this.totalCaloriesLLabel.Size = new System.Drawing.Size(218, 21);
             this.totalCaloriesLLabel.TabIndex = 2;
             this.totalCaloriesLLabel.Text = "Nombre total de calories:";
             // 
             // nombreAlimentsLLabel
             // 
-            this.nombreAlimentsLLabel.Location = new System.Drawing.Point(19, 34);
+            this.nombreAlimentsLLabel.Location = new System.Drawing.Point(14, 28);
+            this.nombreAlimentsLLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nombreAlimentsLLabel.Name = "nombreAlimentsLLabel";
-            this.nombreAlimentsLLabel.Size = new System.Drawing.Size(232, 26);
+            this.nombreAlimentsLLabel.Size = new System.Drawing.Size(174, 21);
             this.nombreAlimentsLLabel.TabIndex = 0;
             this.nombreAlimentsLLabel.Text = "Nombre d\'aliments:";
             // 
@@ -262,28 +273,30 @@
             // 
             this.caloriesAlimentsGroupBox.Controls.Add(this.nombreCaloriesAlimentLabel);
             this.caloriesAlimentsGroupBox.Controls.Add(this.caloriesAlimentsLLabel);
-            this.caloriesAlimentsGroupBox.Location = new System.Drawing.Point(4, 218);
-            this.caloriesAlimentsGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.caloriesAlimentsGroupBox.Location = new System.Drawing.Point(3, 177);
+            this.caloriesAlimentsGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.caloriesAlimentsGroupBox.Name = "caloriesAlimentsGroupBox";
-            this.caloriesAlimentsGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.caloriesAlimentsGroupBox.Size = new System.Drawing.Size(559, 65);
+            this.caloriesAlimentsGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.caloriesAlimentsGroupBox.Size = new System.Drawing.Size(419, 53);
             this.caloriesAlimentsGroupBox.TabIndex = 3;
             this.caloriesAlimentsGroupBox.TabStop = false;
             // 
             // nombreCaloriesAlimentLabel
             // 
             this.nombreCaloriesAlimentLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.nombreCaloriesAlimentLabel.Location = new System.Drawing.Point(373, 25);
+            this.nombreCaloriesAlimentLabel.Location = new System.Drawing.Point(280, 20);
+            this.nombreCaloriesAlimentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nombreCaloriesAlimentLabel.Name = "nombreCaloriesAlimentLabel";
-            this.nombreCaloriesAlimentLabel.Size = new System.Drawing.Size(161, 27);
+            this.nombreCaloriesAlimentLabel.Size = new System.Drawing.Size(121, 22);
             this.nombreCaloriesAlimentLabel.TabIndex = 1;
             this.nombreCaloriesAlimentLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // caloriesAlimentsLLabel
             // 
-            this.caloriesAlimentsLLabel.Location = new System.Drawing.Point(8, 25);
+            this.caloriesAlimentsLLabel.Location = new System.Drawing.Point(6, 20);
+            this.caloriesAlimentsLLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.caloriesAlimentsLLabel.Name = "caloriesAlimentsLLabel";
-            this.caloriesAlimentsLLabel.Size = new System.Drawing.Size(381, 30);
+            this.caloriesAlimentsLLabel.Size = new System.Drawing.Size(286, 24);
             this.caloriesAlimentsLLabel.TabIndex = 0;
             this.caloriesAlimentsLLabel.Text = "Nombre de calories de l\'aliment:";
             // 
@@ -296,12 +309,12 @@
             this.addAlimentFromClassButton.BackColor = System.Drawing.Color.Chocolate;
             this.addAlimentFromClassButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addAlimentFromClassButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addAlimentFromClassButton.Location = new System.Drawing.Point(11, 432);
-            this.addAlimentFromClassButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addAlimentFromClassButton.Location = new System.Drawing.Point(8, 343);
+            this.addAlimentFromClassButton.Margin = new System.Windows.Forms.Padding(2);
             this.addAlimentFromClassButton.Name = "addAlimentFromClassButton";
-            this.addAlimentFromClassButton.Size = new System.Drawing.Size(182, 32);
+            this.addAlimentFromClassButton.Size = new System.Drawing.Size(236, 34);
             this.addAlimentFromClassButton.TabIndex = 8;
-            this.addAlimentFromClassButton.Text = "+&Aliment from class";
+            this.addAlimentFromClassButton.Text = "+&Calculer et ajouter";
             this.addAlimentFromClassButton.UseVisualStyleBackColor = false;
             this.addAlimentFromClassButton.Click += new System.EventHandler(this.addAlimentFromClassButton_Click);
             // 
@@ -326,20 +339,21 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.listAlimentDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.listAlimentDataGridView.Location = new System.Drawing.Point(11, 469);
+            this.listAlimentDataGridView.Location = new System.Drawing.Point(8, 381);
+            this.listAlimentDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.listAlimentDataGridView.Name = "listAlimentDataGridView";
             this.listAlimentDataGridView.ReadOnly = true;
             this.listAlimentDataGridView.RowTemplate.Height = 24;
-            this.listAlimentDataGridView.Size = new System.Drawing.Size(553, 265);
+            this.listAlimentDataGridView.Size = new System.Drawing.Size(415, 215);
             this.listAlimentDataGridView.TabIndex = 9;
             // 
             // CompteurCaloriesForm
             // 
-            this.AcceptButton = this.calculerButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.addAlimentFromClassButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.quitterButton;
-            this.ClientSize = new System.Drawing.Size(577, 737);
+            this.ClientSize = new System.Drawing.Size(433, 599);
             this.Controls.Add(this.listAlimentDataGridView);
             this.Controls.Add(this.addAlimentFromClassButton);
             this.Controls.Add(this.nomAlimentTextBox);
@@ -351,10 +365,12 @@
             this.Controls.Add(this.sommaireAlimentsGroupBox);
             this.Controls.Add(this.caloriesAlimentsGroupBox);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "CompteurCaloriesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Compteur Calories";
+            //this.Load += new System.EventHandler(this.CompteurCaloriesForm_Load);
             this.compositionAlimentGroupBox.ResumeLayout(false);
             this.compositionAlimentGroupBox.PerformLayout();
             this.sommaireAlimentsGroupBox.ResumeLayout(false);
